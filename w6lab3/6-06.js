@@ -52,3 +52,33 @@ if (count1 > count2) {
   numberOfWords += 1;
   console.log(`The number of words in the string is ${numberOfWords}`);
   console.log(`The number of times the Latin word "et" appears is ${numberOfEt}`);
+
+  let string1 = `A man, a plan, a canal, Panama!`;
+  let string2 = "";
+  let string3 = "";
+  let regex = /^[a-zA-Z]+$/; 
+  const arr3 = [];
+  const arr4 = [];
+  for (let i = string1.length-1; i >= 0; i--) {
+    const arr = Array.from(string1);
+    if(regex.test(arr[i])){
+      arr3.push(arr[i]);
+    }
+  }
+  for (let i = 0; i < string1.length; i++) {
+    const arr = Array.from(string1);
+    if(regex.test(arr[i])){
+      arr4.push(arr[i]);
+    }
+  }
+  arr3.forEach(function(element){
+    string2 += element;
+    });
+  arr4.forEach(function(element){
+    string3 += element;
+    });
+  if(string2.toLocaleLowerCase() === string3.toLocaleLowerCase())
+    console.log(`This string is a Palindrome: "`,string1,`" = "`,string2.toLowerCase(),`"`);
+  else console.log(`This string is not a Palindrome.`);
+
+
